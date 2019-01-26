@@ -1,0 +1,12 @@
+[package]
+name = "image_of_the_day_nasa_2"
+version = "0.1.0"
+authors = ["illemonati <tonymiaotong@tioft.tech>"]
+edition = "2018"
+
+[dependencies]
+rss = {version = "1.6.1", features = ["from_url"]}
+reqwest = "0.9.8"
+getset = "0.0.6"
+web-view = { git = "https://github.com/Boscop/web-view.git" }
+base64 = "0.10.1"
