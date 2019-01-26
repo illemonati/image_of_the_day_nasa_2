@@ -10,3 +10,11 @@ reqwest = "0.9.8"
 getset = "0.0.6"
 web-view = { git = "https://github.com/Boscop/web-view.git" }
 base64 = "0.10.1"
+
+[lib]
+crate-type=["rlib", "cdylib"]
+
+[profile.release]
+lto = true
+panic = 'abort'
+opt-level = 'z'

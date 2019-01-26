@@ -1,4 +1,4 @@
-#![windows_subsystem = "windows"]
+
 
 use std::{
     sync::{Arc, Mutex},
@@ -52,30 +52,4 @@ fn render(webview: &mut WebView<i32>, title: String, description: String, link: 
     webview.eval(format!("updateFeed(\"{}\", \"{}\",\"{}\", \"{}\")", title, description, link, image).as_str())
 }
 
-const HTML: &str = r#"
-<!doctype html>
-<html>
-    <head>
-        <script type="text/javascript">
-            function updateFeed(title, description, link, image) {
-                document.getElementById('title').innerHTML = title;
-                document.getElementById('description').innerHTML = description;
-                document.getElementById('link').href = link;
-                document.getElementById('image').src = image;
-            }
-        </script>
-    </head>
-	<body>
-		<h1 id="title">title</h1>
-        <br />
-        <p id="description">description</p>
-        <br />
-        <img id="image" style="height: 200px;" src="" alt="Image" />
-        <br />
-        <a id="link" href="">link<a>
-		<button onclick="external.invoke('get_feed')">update feed</button>
-		<button onclick="external.invoke('exit')">exit</button>
-
-	</body>
-</html>
-"#;
+const HTML: &str = include_str!("interface.html");

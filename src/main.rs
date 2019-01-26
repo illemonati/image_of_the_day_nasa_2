@@ -1,18 +1,6 @@
-extern crate web_view;
-extern crate rss;
-extern crate reqwest;
-extern crate base64;
-// #[macro_use]
-// extern crate getset;
-mod interface;
-mod imotd;
+#![windows_subsystem = "windows"]
+extern crate image_of_the_day_nasa_2;
 
 fn main() {
-    interface::run_gui();
-    // test_rss();
-}
-
-fn test_rss() {
-    let image_of_the_day = imotd::ImageOfTheDay::new();
-    println!("{:?}", image_of_the_day);
+    image_of_the_day_nasa_2::run();
 }

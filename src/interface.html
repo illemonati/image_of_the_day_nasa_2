@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+    <head>
+        <script type="text/javascript">
+            function updateFeed(title, description, link, image) {
+                document.getElementById('title').innerHTML = title;
+                document.getElementById('description').innerHTML = description;
+                document.getElementById('link').href = link;
+                document.getElementById('image').src = image;
+            }
+        </script>
+        <style>
+          #title {
+            background-color: coral;
+            border: 2px solid coral;
+            border-radius: 5px;
+            text-align: center;
+          }
+
+          #description {
+            background-color: #79eef8;
+            border: 2px solid #79eef8;
+            border-radius: 5px;
+            text-align: center;
+          }
+
+          .center {
+            text-align: center;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: auto;
+          }
+
+          #image {
+            height: 350px;
+          }
+
+          #controls {
+            position: absolute;
+          }
+        </style>
+    </head>
+	<body>
+		<h1 id="title">title</h1>
+    <p id="description" class="center">description</p>
+    <br />
+    <img id="image" class="center" src="" alt="" />
+    <br />
+    <a id="link" href=""><a>
+    <div id="controls">
+  		<button onclick="external.invoke('get_feed')">update feed</button>
+  		<button onclick="external.invoke('exit')">exit</button>
+    </div>
+    <script>
+      external.invoke('get_feed');
+    </script>
+	</body>
+
+</html>
