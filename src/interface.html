@@ -2,16 +2,17 @@
 <html>
     <head>
         <script type="text/javascript">
-            function updateFeed(title, description, link, image) {
+            function updateFeed(title, description, link, image, pub_date) {
                 document.getElementById('title').innerHTML = title;
                 document.getElementById('description').innerHTML = description;
                 document.getElementById('link').href = link;
                 document.getElementById('image').src = image;
+                document.getElementById('pub_date').innerHTML = pub_date;
             }
         </script>
         <style>
           #title {
-            background-color: coral;
+            background-color: #006700;
             border: 2px solid coral;
             border-radius: 5px;
             text-align: center;
@@ -47,6 +48,7 @@
     <br />
     <img id="image" class="center" src="" alt="" />
     <br />
+    <p id="pub_date" class="center">pub_date</p>
     <a id="link" href=""><a>
     <div id="controls">
   		<button onclick="external.invoke('get_feed')">update feed</button>

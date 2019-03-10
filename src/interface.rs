@@ -28,9 +28,10 @@ pub fn run_gui() {
                     let title = image_of_the_day.title;
                     let description = image_of_the_day.description;
                     let link = image_of_the_day.link;
+                    let pub_date = image_of_the_day.pub_date;
                     let image = image_of_the_day.image;
                     let image = format!("data:image/jpg;base64, {}", encode(&image.into_inner()));
-                    render(webview, title, description, link, image)?;
+                    render(webview, title, description, link, image, pub_date)?;
                 }
                 "exit" => {
                     webview.terminate();
@@ -46,10 +47,10 @@ pub fn run_gui() {
     webview.run().unwrap();
 }
 
-fn render(webview: &mut WebView<i32>, title: String, description: String, link: String, image: String) -> WVResult {
+fn render(webview: &mut WebView<i32>, title: String, description: String, link: String, image: String, pub_date: String) -> WVResult {
     let user_data = *webview.user_data();
     // println!("Title: {}, userdata: {}", title, user_data);
-    webview.eval(format!("updateFeed(\"{}\", \"{}\",\"{}\", \"{}\")", title, description, link, image).as_str())
+    webview.eval(format!("updateFeed(\"{}\", \"{}\",\"{}\", \"{}\", \"{}\")", title, description, link, image, pub_date).as_str())
 }
 
 const HTML: &str = include_str!("interface.html");
