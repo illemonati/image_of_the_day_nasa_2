@@ -6,6 +6,7 @@
                 document.getElementById('title').innerHTML = title;
                 document.getElementById('description').innerHTML = description;
                 document.getElementById('link').href = link;
+                document.getElementById('link').innerText = link;
                 document.getElementById('image').src = image;
                 document.getElementById('pub_date').innerHTML = pub_date;
             }
@@ -23,6 +24,10 @@
             border: 2px solid #79eef8;
             border-radius: 5px;
             text-align: center;
+          }
+
+          #link {
+              text-align: center;
           }
 
           .center {
@@ -49,7 +54,7 @@
     <img id="image" class="center" src="" alt="" />
     <br />
     <p id="pub_date" class="center">pub_date</p>
-    <a id="link" href=""><a>
+    <a id="link" href="">link</a>
     <div id="controls">
   		<button onclick="external.invoke('get_feed')">update feed</button>
   		<button onclick="external.invoke('exit')">exit</button>
